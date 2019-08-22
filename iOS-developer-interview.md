@@ -623,7 +623,7 @@ autolayout работает с `frame` `UIView` до трансформации.
 func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
 	guard point(inside: point, with: event) else { return nil }
 	guard isUserInteractionEnabled && !isHidden && alpha > 0.01 else { return nil }
-	for subview in subviews {
+	for subview in subviews.reversed() {
 		if let hitView = subview.hitTest(convert(point, to: subview), with: event) {
 			return hitView
 		}
